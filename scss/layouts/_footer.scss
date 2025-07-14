@@ -1,0 +1,127 @@
+footer {
+    /* background-color: #ffd8fd; */
+    color: #222;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    gap: 2rem;
+
+    div {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        a{
+            text-decoration: none;
+            color: #222;
+            /* &:hover {
+                
+            } */
+        }
+
+        li {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+
+            small {
+                display: block;
+                font-size: 0.95rem;
+                /* color: ; */
+            }
+        }
+    }
+
+    .xp-cliente{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .xp-cliente h3{
+      font-size: 1.6rem;
+    }
+
+    .whatsapp-footer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+
+        .whatsapp-footer-item{
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .to-footer{
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+    }
+    .to-footer h3{
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .to-footer ul{
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .horarios-footer{
+        h3{
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        }
+      
+        ul{
+            li{
+              font-size: 1.2rem;
+              list-style: none;
+              margin-bottom: 10px;
+              display: flex;
+              justify-content: space-evenly;
+              gap: 10px;
+            }
+        }
+
+    }
+
+    .redes-footer {
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+
+            li {
+                font-size: 1.2rem;
+            }
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+   
+}

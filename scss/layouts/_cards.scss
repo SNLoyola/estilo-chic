@@ -1,0 +1,363 @@
+.body-cards {
+   
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); /* Ajusta las tarjetas automáticamente */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 1rem; /* Margen interno para separación del borde */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 5px; /* Esquinas redondeadas */
+    
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  height: fit-content;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Contenedor de tags */
+.card-tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espacio entre los tags */
+  z-index: 10;
+}
+
+/* Tag general */
+.tag {
+//   font-size: 0.75rem;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Tag de “Nuevo ingreso” */
+.primary-tag {
+  background-color: #f485e6;
+}
+
+/* Tag de “Descuento” */
+.second-tag {
+  background-color: #56d277; /* Verde o el color que prefieras */
+}
+
+
+/* Imagen dual */
+.card-img {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-img .front-img {
+  opacity: 1;
+  z-index: 1;
+}
+
+.card-img .back-img {
+  opacity: 0;
+  z-index: 2;
+}
+
+.card-img:hover .front-img {
+  opacity: 0;
+}
+
+.card-img:hover .back-img {
+  opacity: 1;
+}
+
+/* Contenido */
+.card-title {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+.card-data {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0 10px;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    gap: 5px;
+}
+
+.card-actions button {
+  padding: 6px 12px;
+  background: #ff34e5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card-actions button:hover {
+  background: #ca9bc4;
+}
+
+// popup
+.popup {
+    display: none; /* Oculta la ventana emergente por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-content {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    gap: 20px;
+}
+
+/* Contenedor de la izquierda (imágenes) */
+.popup-left {
+    width: 60%; /* Ocupa el 60% del popup */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    /* Contenedor de las imágenes adicionales */
+    .additional-images {
+        width: 100%;
+        height: 20%; /* Ocupa el 20% del contenedor left */
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+        img.thumbnail {
+            width: 23%; /* Las miniaturas ocupan el 30% del espacio disponible */
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            object-fit: cover;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.7; /* Efecto hover en las miniaturas */
+            }
+        }
+    }
+
+    /* Imagen principal ocupa el 80% del contenedor izquierdo */
+    .main-img {
+        width: 100%;
+        height: 80%; /* Ocupa el 80% del contenedor */
+        border-radius: 8px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+}
+
+/* Contenedor de la derecha (descripción) */
+.popup-right {
+    width: 40%; /* Ocupa el 40% del popup */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    max-height: 80vh; /* Limita la altura máxima a un 80% de la altura de la ventana */
+    overflow-y: auto; /* Activa el desplazamiento vertical cuando el contenido excede el límite de altura */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+
+    .popup-right::-webkit-scrollbar {
+        width: 6px; /* Ancho de la barra de desplazamiento */
+    }
+
+    .popup-right::-webkit-scrollbar-thumb {
+        background-color: red; /* Color de la parte que se mueve */
+        border-radius: 4px;
+    }
+
+    .popup-right::-webkit-scrollbar-track {
+        background: red; /* Color de fondo de la barra de desplazamiento */
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    p {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    /* Botón "Agregar al carrito" */
+    .add-to-cart {
+        background-color: #198754;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+            background-color: #005933;
+        }
+    }
+
+    /* Nueva sección: Stock disponible y selector de cantidad */
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    #quantity {
+        margin-left: 0.5rem;
+        padding: 0.3rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Nueva sección: Especificaciones */
+    .specs {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+
+    .specs li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Nueva sección: Promociones */
+    .promo-code {
+        width: calc(100% - 2rem); /* Asegura un buen tamaño dentro del contenedor */
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .apply-promo {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+            background-color: #218838;
+        }
+    }
+
+    /* Nueva sección: Métodos de pago y envío */
+    h3 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .shipping-info {
+        margin-top: 10px;
+        line-height: 1.4;
+    }
+}
+
+
+/* Botón de cerrar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+    &:hover {
+        color: red;
+    }
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    flex-direction: column; /* stackea left y right */
+    height: 90vh;
+    overflow-y: auto; /* scroll en todo el contenido */
+  }
+
+  .popup-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .additional-images {
+    width: 100%;
+    display: flex;
+    overflow-x: auto; /* 🔁 carrusel horizontal */
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .additional-images .thumbnail {
+    width: 60vw;
+    border-radius: 8px;
+  }
+
+  .main-img {
+    width: 90%;
+    max-height: 250px;
+    object-fit: contain;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  .popup-right {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}

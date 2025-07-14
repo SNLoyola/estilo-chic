@@ -701,6 +701,11 @@ ul {
     box-sizing: border-box;
   }
 }
+@media (max-width: 480px) {
+  .body-cards {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
 footer {
   /* background-color: #ffd8fd; */
   color: #222;

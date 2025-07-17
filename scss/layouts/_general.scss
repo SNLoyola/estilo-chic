@@ -9,6 +9,48 @@ html, body {
   overflow-x: hidden;
 }
 
+body{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* === Títulos === */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.8rem; /* para desktop */
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+/* === Texto general === */
+p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* === Botones y tags === */
+button, .tag {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -71,7 +113,7 @@ ul {
 /* Escritorio */
 @media (min-width: 768px) {
   .slide {
-    height: 400px;
+    height: 550px;
   }
 
   .slide img {
@@ -129,4 +171,8 @@ ul {
       border-bottom: #000 1px solid;
       border-right: none;
   }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.2rem; }
 }

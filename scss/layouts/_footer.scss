@@ -122,6 +122,12 @@ footer {
             margin-bottom: 0.5rem;
         }
     }
+}
 
-   
+.disable {
+  pointer-events: none; /* evita que se pueda hacer clic */
+  opacity: 0.5;          /* lo muestra "apagado" visualmente */
+  cursor: not-allowed;   /* cambia el cursor al pasar por encima */
+  text-decoration: none; /* quita subrayado si es un <a> */
+  color: #aaa;
 }

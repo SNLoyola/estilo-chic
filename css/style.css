@@ -99,7 +99,6 @@ header {
 }
 .cortalabocha li.dropdown-item {
   font-size: 1.4rem;
-  padding: 7px;
   display: flex;
   border-bottom: 1px solid #646464;
 }
@@ -113,7 +112,7 @@ header {
   width: 220px;
   background-color: #f9d1d8;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 10px;
 }
 
